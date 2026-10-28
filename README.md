@@ -1,5 +1,5 @@
 # Tomcat Takeover Wireshark Lab
-A network traffic investigation on CyberDefenders Tomcat Takeover Lab, simulating the compromise of an Apache Tomcat server. 
+
 
 ## Project Overview
 This project uses network traffic data from the Tomcat Takeover lab on CyberDefenders. The objective was to analyze suspicious network traffic, reconstruct the attack sequence, identify evidence of unauthorized access, and investigate how the attacker achieved remote command execution on the victim web server.
