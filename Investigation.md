@@ -16,7 +16,7 @@ The objective of this investigation is to analyze network traffic in Wireshark t
 **Tools:** Wireshark, VirusTotal, CyberChef
 
 ---
-### Indicators of Compromise (IOCs) and MITRE ATT&CK Summary
+#### Indicators of Compromise (IOCs) and MITRE ATT&CK Summary
 
 <table>
 <tr>
@@ -105,7 +105,7 @@ The objective of this investigation is to analyze network traffic in Wireshark t
 
 <img width="689" height="167" alt="tomcat_admin" src="https://github.com/user-attachments/assets/9b6f0e77-32cf-4972-93a0-3b565fe874d2" />
 
-#### *MITRE ATT&CK Technique:* [T1595.001](https://attack.mitre.org/techniques/T1595/001/) - Active Scanning: Scanning IP Blocks
+##### *MITRE ATT&CK Technique:* [T1595.001](https://attack.mitre.org/techniques/T1595/001/) - Active Scanning: Scanning IP Blocks
 
 ---
 
@@ -119,7 +119,7 @@ The objective of this investigation is to analyze network traffic in Wireshark t
 
 ##### The use of this tool, combined with the suspicious source IP address and subsequent activity, supports the conclusion that the requests were part of the attacker's reconnaissance.
 
-#### *MITRE ATT&CK Technique:* [ID: T1595.003](https://attack.mitre.org/techniques/T1595/003/) - Active Scanning: Wordlist Scanning
+##### *MITRE ATT&CK Technique:* [T1595.003](https://attack.mitre.org/techniques/T1595/003/) - Active Scanning: Wordlist Scanning
 ---
 ### Administrative Directory Discovery
 <!-- A thin, dashed gray line -->
@@ -162,9 +162,9 @@ The objective of this investigation is to analyze network traffic in Wireshark t
 
 <img width="452" height="398" alt="tomcat_cyberchef" src="https://github.com/user-attachments/assets/95ec6818-033b-41d3-9fd3-e9e217ec69e7" />
 
-#### *MITRE ATT&CK Techniques:* 
-- [ID: T1110.001](https://attack.mitre.org/techniques/T1110/001/) - Brute Force: Password Guessing
-- [ID: T1078.001](https://attack.mitre.org/techniques/T1078/001/) - Valid Accounts: Default Accounts
+##### *MITRE ATT&CK Techniques:* 
+- [T1110.001](https://attack.mitre.org/techniques/T1110/001/) - Brute Force: Password Guessing
+- [T1078.001](https://attack.mitre.org/techniques/T1078/001/) - Valid Accounts: Default Accounts
 
 
 
@@ -187,7 +187,7 @@ The objective of this investigation is to analyze network traffic in Wireshark t
 
 ##### The subsequent packet, `20642`, contains an `HTTP 200 OK` response, indicating that the server successfully processed the request. This supports the conclusion that the upload or deployment request succeeded.
 
-#### *MITRE ATT&CK Technique:* [ID: T1105](https://attack.mitre.org/techniques/T1105/) - Ingress Tool Transfer
+##### *MITRE ATT&CK Technique:* [T1105](https://attack.mitre.org/techniques/T1105/) - Ingress Tool Transfer
 
 
 ---
@@ -209,12 +209,14 @@ The objective of this investigation is to analyze network traffic in Wireshark t
 
 ##### If the cron job remains active and the destination is reachable, this recurring connection attempt could allow the attacker to regain access after an existing session ends.
 
-#### *MITRE ATT&CK Technique:* [ID: T1053.003](https://attack.mitre.org/techniques/T1053/003/) - Scheduled Task/Job: Cron
-#### *MITRE ATT&CK Technique:* [ID: T1059.004](https://attack.mitre.org/techniques/T1059/004/) - Command and Scripting Interpreter: Unix Shell
+##### *MITRE ATT&CK Techniques:*
+- [T1053.003](https://attack.mitre.org/techniques/T1053/003/) - Scheduled Task/Job: Cron
+- [T1059.004](https://attack.mitre.org/techniques/T1059/004/) - Command and Scripting Interpreter: Unix Shell
+  
 ---
 
 ## Conclusion
 <!-- A thin, dashed gray line -->
 <hr style="border: none; border-top: 1px dashed #888888;">
 
-
+This investigation showed how a single exposed service with weak credentials can lead to a full compromise. Using Wireshark, I traced the attacker IP address from the initial port scan through the cron-based callback. This attack could have been prevented at several points: changing the default credentials, restricting sensitive resources to trusted IPs, limiting login attempts, filtering outbound traffic on port 443, and alerting on new WAR deployments or cron changes. This lab gave me hands-on practice following an attack through packet analysis, connecting my findings to MITRE ATT&CK techniques, and recommending defensive fixes.
