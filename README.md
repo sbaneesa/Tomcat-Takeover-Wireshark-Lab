@@ -26,6 +26,8 @@ This project uses network traffic data from the Tomcat Takeover lab on CyberDefe
 - **Remote command execution:** Subsequent network traffic is consistent with a reverse shell connecting back to the attacker.
 - **Persistence:** Evidence indicates that a cron job was configured to attempt recurring reverse-shell connections.
 
+#### Find the full investigation report [here](https://github.com/sbaneesa/Tomcat-Takeover-Wireshark-Lab/blob/main/Investigation.md)
+
 ## Security Vulnerabilities and Misconfiguirations
 The attack was facilitated by an exposed Apache Tomcat service on TCP port 8080, which provided the attacker with an entry point for web application enumeration. Although an open port is not inherently a vulnerability, exposing the service to unauthorized users increases the server's attack surface.
 
